@@ -1,0 +1,5 @@
+mlx
+a.out
+*.o
+screen.c
+.DS_Store
