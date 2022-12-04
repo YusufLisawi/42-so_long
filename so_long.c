@@ -5,16 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 16:17:31 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/04 14:13:45 by yelaissa         ###   ########.fr       */
+/*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
+/*   Updated: 2022/12/04 16:08:58 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "so_long.h"
 
-int main()
+int	main(void)
 {
-	char **map;
-	map = get_map();
+	char	**map;
+	int		map_width;
+	int		map_height;
+	t_elem	elem;
+
+	elems_init(&elem);
+	map = get_map("map.ber", &map_width, &map_height, &elem);
+	if (map)
+	{
+		ft_printf("count c -> %d\n", elem.count_c);
+		ft_printf("count p -> %d\n", elem.count_p);
+		ft_printf("count e -> %d\n", elem.count_e);
+		ft_printf("height : %i - width : %i\n", map_height, map_width);
+	}
+	free(map);
 }

@@ -6,28 +6,55 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/04 15:01:51 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:22:31 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define COLOR_RED     "\x1b[31m"
-# define COLOR_GREEN   "\x1b[32m"
-# define COLOR_YELLOW  "\x1b[33m"
-# define COLOR_RESET   "\x1b[0m"
-
-# define ERR_BER	"Invalid map file (.ber)"
-# define ERR_ELMS	"The map must contain 1 (E), at least 1 (C), and 1 (P)."
-# define ERR_RECT	"The map must be rectangular."
-# define ERR_WALL	"The map must be closed/surrounded by walls."
-
 # include <stdio.h>
 # include <errno.h>
 # include "get_map.h"
 # include "libft/libft.h"
+# include <mlx.h>
+# include "mlx/mlx.h"
+// Colors
+# define COLOR_RED     "\x1b[31m"
+# define COLOR_GREEN   "\x1b[32m"
+# define COLOR_YELLOW  "\x1b[33m"
+# define COLOR_RESET   "\x1b[0m"
+// Errors
+# define ERR_BER	"Invalid map file (.ber)"
+# define ERR_ELMS	"The map must contain 1 (E), at least 1 (C), and 1 (P)."
+# define ERR_RECT	"The map must be rectangular."
+# define ERR_WALL	"The map must be closed/surrounded by walls."
+// Game
+# define TILE_SIZE 50
 
-int	throw_err(char *type);
+typedef struct s_img
+{
+	void	*img;
+	int		img_width;
+	int		img_height;
+}	t_img;
+
+typedef struct s_game
+{
+	void		*mlx;
+	void		*win;
+
+	t_img		wall;
+	t_img		coll;
+	t_img		player;
+	t_img		bg;
+	t_img		exit_false;
+	t_img		exit_true;
+
+	char		**map;
+}	t_game;
+
+int		throw_err(char *type);
+void	game_init(char **map, int width, int height, t_game *game);
 
 #endif

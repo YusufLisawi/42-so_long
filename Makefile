@@ -6,15 +6,17 @@
 #    By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/04 15:05:27 by yelaissa         ###   ########.fr        #
+#    Updated: 2022/12/04 19:13:06 by yelaissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS = main.c \
+SRCS = so_long.c \
 	get_map.c \
 	get_map_utils.c \
-	error_log.c
+	error_log.c \
+	put_assets.c \
+	init.c \
 
 NAME    = so_long
 
