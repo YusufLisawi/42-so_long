@@ -6,18 +6,19 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/04 19:22:31 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:34:19 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-
+// Libs
 # include <stdio.h>
+# include <stdlib.h>
 # include <errno.h>
+# include <mlx.h>
 # include "get_map.h"
 # include "libft/libft.h"
-# include <mlx.h>
 # include "mlx/mlx.h"
 // Colors
 # define COLOR_RED     "\x1b[31m"

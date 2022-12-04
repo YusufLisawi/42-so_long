@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/04 19:30:15 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:37:19 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	game_init(char **map_matrix, int width, int height, t_game *game)
 	images_init(game);
 }
 
+void	put_assets(t_game *game)
+{
+	return (0);
+}
 // int	main_loop(t_game *game)
 // {
 // 	draw_rectangles(game);

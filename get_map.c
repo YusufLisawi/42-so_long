@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/04 16:07:30 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/04 19:33:44 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ char	*read_map(int fd, int *width, int *height)
 		else if (!is_valid_elements(line))
 			return (0);
 		map = ft_strjoin(map, line);
+		free(line);
 		(*height)++;
 	}
 	return (map);
