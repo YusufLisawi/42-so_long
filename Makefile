@@ -6,7 +6,7 @@
 #    By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/04 19:37:59 by yelaissa         ###   ########.fr        #
+#    Updated: 2022/12/05 19:26:23 by yelaissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS = so_long.c \
 	get_map_utils.c \
 	error_log.c \
 	init.c \
+	move_player.c \
 
 NAME    = so_long
 

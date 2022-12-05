@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/05 17:27:06 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:31:45 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,9 @@ int		throw_err(char *type);
 void	game_init(t_game *game);
 void	parse_map(t_game *game);
 void	put_element(char c, int x, int y, t_game *game);
+void	key_d(t_game *game);
+void	key_s(t_game *game);
+void	key_a(t_game *game);
+void	key_w(t_game *game);
 
 #endif

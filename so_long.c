@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 17:33:37 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:30:44 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ void	free_map(char **map)
 int	handle_keypress(int keycode, t_game *game)
 {
 	if (keycode == KEY_D)
-	{
-		if (game->map.matrix[game->pos.y][game->pos.x + 1] != '1')
-		{
-			game->map.matrix[game->pos.y][game->pos.x] = '0';
-			put_element('0', game->pos.x, game->pos.y, game);
-			game->map.matrix[game->pos.y][game->pos.x + 1] = 'P';
-			put_element('P', game->pos.x + 1, game->pos.y, game);
-		}
-	}
+		key_d(game);
+	else if (keycode == KEY_W)
+		key_w(game);
+	else if (keycode == KEY_S)
+		key_s(game);
+	else if (keycode == KEY_A)
+		key_a(game);
 	else if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(game->mlx, game->win);
