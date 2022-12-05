@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 19:30:44 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 20:07:11 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,18 @@ void	free_map(char **map)
 	}
 	free(map);
 }
+/* 
+game->pos.y = game->pos.y - 1;
+		game->pos.x = game->pos.x - 1;
+		game->pos.y = game->pos.y + 1;
+		game->pos.x = game->pos.x + 1;
 
+ */
 int	handle_keypress(int keycode, t_game *game)
 {
-	if (keycode == KEY_D)
-		key_d(game);
-	else if (keycode == KEY_W)
-		key_w(game);
-	else if (keycode == KEY_S)
-		key_s(game);
-	else if (keycode == KEY_A)
-		key_a(game);
+	ft_printf("%d", game->elem.count_c);
+	if (keycode != KEY_ESC)
+		move_player(keycode, game);
 	else if (keycode == KEY_ESC)
 	{
 		mlx_destroy_window(game->mlx, game->win);
@@ -46,13 +47,12 @@ int	handle_keypress(int keycode, t_game *game)
 int	main(void)
 {
 	t_game	game;
-	t_elem	elem;
 
-	elems_init(&elem);
+	elems_init(&game.elem);
 	game.map.matrix = get_map("map.ber", \
 			&game.map.width, \
 			&game.map.height, \
-			&elem);
+			&game.elem);
 	if (!game.map.matrix)
 		return (0);
 	game_init(&game);

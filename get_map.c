@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 16:58:48 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:45:31 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ int	check_file(char *filename, int *fd)
 		return (0);
 	}
 	return (1);
-}
-
-void	elems_init(t_elem *elm)
-{
-	elm->count_c = 0;
-	elm->count_e = 0;
-	elm->count_p = 0;
 }
 
 char	*read_map(int fd, int *width, int *height)

@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 17:27:39 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 19:45:48 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,12 @@ void	put_element(char c, int x, int y, t_game *game)
 		game->pos.y = y;
 	}
 	else if (c == 'E')
+	{
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->exit_false.img, x * TILE_SIZE, y * TILE_SIZE);
+		game->pos.x_e = x;
+		game->pos.y_e = y;
+	}
 	else if (c == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->coll.img,
 			x * TILE_SIZE, y * TILE_SIZE);
@@ -79,4 +83,11 @@ void	parse_map(t_game *game)
 		}
 		row++;
 	}
+}
+
+void	elems_init(t_elem *elm)
+{
+	elm->count_c = 0;
+	elm->count_e = 0;
+	elm->count_p = 0;
 }

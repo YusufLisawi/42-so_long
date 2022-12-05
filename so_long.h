@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/05 19:31:45 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 20:04:16 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ typedef struct s_pos
 {
 	int		x;
 	int		y;
+
+	int		x_e;
+	int		y_e;
 }	t_pos;
 
 typedef struct s_game
@@ -73,16 +76,14 @@ typedef struct s_game
 	t_img		exit_true;
 
 	t_map		map;
+	t_elem		elem;
 	t_pos		pos;
 }	t_game;
 
+void	elems_init(t_elem *elm);
 int		throw_err(char *type);
 void	game_init(t_game *game);
 void	parse_map(t_game *game);
 void	put_element(char c, int x, int y, t_game *game);
-void	key_d(t_game *game);
-void	key_s(t_game *game);
-void	key_a(t_game *game);
-void	key_w(t_game *game);
-
+void	move_player(int keycode, t_game *game);
 #endif
