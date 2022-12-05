@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 17:00:46 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:27:39 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,12 @@ void	put_element(char c, int x, int y, t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win, game->bg.img,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (c == 'P')
+	{
 		mlx_put_image_to_window(game->mlx, game->win, game->player.img,
 			x * TILE_SIZE, y * TILE_SIZE);
+		game->pos.x = x;
+		game->pos.y = y;
+	}
 	else if (c == 'E')
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->exit_false.img, x * TILE_SIZE, y * TILE_SIZE);

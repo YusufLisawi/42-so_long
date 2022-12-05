@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/05 16:59:26 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:27:06 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@
 // Game
 # define TILE_SIZE 40
 
+// Keys
+# define KEY_ESC 53
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+
 typedef struct s_img
 {
 	void	*img;
@@ -47,6 +54,12 @@ typedef struct s_map
 	int		height;
 }	t_map;
 
+typedef struct s_pos
+{
+	int		x;
+	int		y;
+}	t_pos;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -60,10 +73,12 @@ typedef struct s_game
 	t_img		exit_true;
 
 	t_map		map;
+	t_pos		pos;
 }	t_game;
 
 int		throw_err(char *type);
 void	game_init(t_game *game);
 void	parse_map(t_game *game);
+void	put_element(char c, int x, int y, t_game *game);
 
 #endif
