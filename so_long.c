@@ -6,27 +6,39 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/04 16:08:58 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:59:58 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
 int	main(void)
 {
-	char	**map;
-	int		map_width;
-	int		map_height;
+	t_game	game;
 	t_elem	elem;
 
 	elems_init(&elem);
-	map = get_map("map.ber", &map_width, &map_height, &elem);
-	if (map)
-	{
-		ft_printf("count c -> %d\n", elem.count_c);
-		ft_printf("count p -> %d\n", elem.count_p);
-		ft_printf("count e -> %d\n", elem.count_e);
-		ft_printf("height : %i - width : %i\n", map_height, map_width);
-	}
-	free(map);
+	game.map.matrix = get_map("map.ber",
+			&game.map.width,
+			&game.map.height,
+			&elem);
+	if (!game.map.matrix)
+		return (0);
+	game_init(&game);
+	parse_map(&game);
+	mlx_loop(game.mlx);
+	free_map(game.map.matrix);
 }

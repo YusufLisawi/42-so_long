@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/04 19:34:19 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:59:26 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define ERR_RECT	"The map must be rectangular."
 # define ERR_WALL	"The map must be closed/surrounded by walls."
 // Game
-# define TILE_SIZE 50
+# define TILE_SIZE 40
 
 typedef struct s_img
 {
@@ -39,6 +39,13 @@ typedef struct s_img
 	int		img_width;
 	int		img_height;
 }	t_img;
+
+typedef struct s_map
+{
+	char	**matrix;
+	int		width;
+	int		height;
+}	t_map;
 
 typedef struct s_game
 {
@@ -52,10 +59,11 @@ typedef struct s_game
 	t_img		exit_false;
 	t_img		exit_true;
 
-	char		**map;
+	t_map		map;
 }	t_game;
 
 int		throw_err(char *type);
-void	game_init(char **map, int width, int height, t_game *game);
+void	game_init(t_game *game);
+void	parse_map(t_game *game);
 
 #endif

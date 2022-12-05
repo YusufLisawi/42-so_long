@@ -6,11 +6,12 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/04 19:33:44 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/05 16:58:48 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "get_map.h"
 
 int	check_file(char *filename, int *fd)
 {
