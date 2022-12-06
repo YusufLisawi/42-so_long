@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/06 15:16:58 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:58:19 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,20 @@ void	move(t_game *game, int x, int y)
 	put_element('0', game->pos.x, game->pos.y, game);
 	put_element('P', game->pos.x + x, game->pos.y + y, game);
 	collect(game);
-	if (game->map.matrix[game->pos.y + y][game->pos.x + x] == 'e')
+	if (game->map.matrix[game->pos.y][game->pos.x] == 'e')
 	{
 		mlx_string_put(game->mlx, game->win,
 			game->pos.x_e * TILE_SIZE + TILE_SIZE,
-			game->pos.y_e * TILE_SIZE, 0xFFFFFF, "You win");
+			game->pos.y_e * TILE_SIZE + 8, 0xFFFFFF, "You win");
 		game->elem.count_e = game->elem.count_e - 1;
 	}
+	ft_printf("c : %d\n", game->elem.count_c);
+	ft_printf("e : %d\n", game->elem.count_e);
+	ft_printf("Mouvement : %d\n", ++game->mvt);
 }
 
 void	move_player(int keycode, t_game *game)
 {
-	ft_printf("Mouvement : %d\n", ++game->mvt);
 	if (keycode == KEY_W || keycode == 126)
 		move(game, 0, -1);
 	else if (keycode == KEY_A || keycode == 123)

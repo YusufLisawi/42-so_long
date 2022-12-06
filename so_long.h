@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/06 14:56:42 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:26:53 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	int			mvt;
-
 	t_img		wall;
 	t_img		coll;
 	t_img		player;
