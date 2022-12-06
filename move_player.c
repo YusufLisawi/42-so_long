@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/06 11:33:03 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:16:58 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ void	move(t_game *game, int x, int y)
 	collect(game);
 	if (game->map.matrix[game->pos.y + y][game->pos.x + x] == 'e')
 	{
-		ft_printf("You win");
-		exit(0);
+		mlx_string_put(game->mlx, game->win,
+			game->pos.x_e * TILE_SIZE + TILE_SIZE,
+			game->pos.y_e * TILE_SIZE, 0xFFFFFF, "You win");
+		game->elem.count_e = game->elem.count_e - 1;
 	}
 }
 
 void	move_player(int keycode, t_game *game)
 {
+	ft_printf("Mouvement : %d\n", ++game->mvt);
 	if (keycode == KEY_W || keycode == 126)
 		move(game, 0, -1);
 	else if (keycode == KEY_A || keycode == 123)

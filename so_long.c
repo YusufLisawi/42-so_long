@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/06 11:22:44 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:01:28 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	free_map(char **map)
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	ft_printf("%d\n", game->elem.count_c);
-	if (keycode != KEY_ESC)
+	ft_printf("c : %d\n", game->elem.count_c);
+	ft_printf("e : %d\n", game->elem.count_e);
+	if (keycode != KEY_ESC && game->elem.count_e != 0)
 		move_player(keycode, game);
 	else if (keycode == KEY_ESC)
 	{
@@ -52,6 +53,7 @@ int	main(void)
 		return (0);
 	game_init(&game);
 	parse_map(&game);
+	game.mvt = 0;
 	mlx_key_hook(game.win, handle_keypress, &game);
 	mlx_loop(game.mlx);
 	free_map(game.map.matrix);
