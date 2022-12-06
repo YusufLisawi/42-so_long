@@ -6,7 +6,7 @@
 #    By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/05 19:26:23 by yelaissa         ###   ########.fr        #
+#    Updated: 2022/12/06 10:54:20 by yelaissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,10 @@ CFLAGS   = -Wall -Wextra -Werror
 
 RM        = rm -f
 
-%.o : %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+CC 		= gcc
 
 $(NAME):
-	$(CC) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a
+	$(CC) $(CFLAGS) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a
 	./a.out
 
 all: $(NAME)
