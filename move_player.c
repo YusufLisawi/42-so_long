@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/06 16:58:19 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:35:33 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,33 @@ void	collect(t_game *game)
 	}
 }
 
-void	move(t_game *game, int x, int y)
+void	check_exit(t_game *game)
 {
-	if (game->map.matrix[game->pos.y + y][game->pos.x + x] == '1'
-		|| (game->map.matrix[game->pos.y + y][game->pos.x + x] == 'E'))
-		return ;
-	put_element('0', game->pos.x, game->pos.y, game);
-	put_element('P', game->pos.x + x, game->pos.y + y, game);
-	collect(game);
 	if (game->map.matrix[game->pos.y][game->pos.x] == 'e')
 	{
 		mlx_string_put(game->mlx, game->win,
 			game->pos.x_e * TILE_SIZE + TILE_SIZE,
 			game->pos.y_e * TILE_SIZE + 8, 0xFFFFFF, "You win");
 		game->elem.count_e = game->elem.count_e - 1;
+		ft_printf(COLOR_GREEN "\n----- You win -----\n" COLOR_RESET);
 	}
-	ft_printf("c : %d\n", game->elem.count_c);
-	ft_printf("e : %d\n", game->elem.count_e);
-	ft_printf("Mouvement : %d\n", ++game->mvt);
+}
+
+void	move(t_game *game, int x, int y)
+{
+	if (game->map.matrix[game->pos.y + y][game->pos.x + x] == '1')
+		return ;
+	if (game->map.matrix[game->pos.y + y][game->pos.x + x] == 'E'
+		&& game->elem.count_c != 0)
+		put_element('E', game->pos.x_e, game->pos.y_e, game);
+	if (game->map.matrix[game->pos.y - y][game->pos.x - x] != 'E')
+	{
+		put_element('0', game->pos.x, game->pos.y, game);
+		put_element('E', game->pos.x_e, game->pos.y_e, game);
+	}
+	collect(game);
+	put_element('P', game->pos.x + x, game->pos.y + y, game);
+	check_exit(game);
 }
 
 void	move_player(int keycode, t_game *game)
@@ -58,4 +67,8 @@ void	move_player(int keycode, t_game *game)
 		move(game, 0, 1);
 	else if (keycode == KEY_D || keycode == 124)
 		move(game, 1, 0);
+	ft_printf("(%d, %d)\n", game->pos.x, game->pos.y);
+	ft_printf("c : %d\n", game->elem.count_c);
+	ft_printf("e : %d\n", game->elem.count_e);
+	ft_printf("Mouvement : %d\n", ++game->mvt);
 }

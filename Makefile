@@ -6,7 +6,7 @@
 #    By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/06 10:54:20 by yelaissa         ###   ########.fr        #
+#    Updated: 2022/12/09 19:39:09 by yelaissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = so_long.c \
 	error_log.c \
 	init.c \
 	move_player.c \
+	hooks.c \
 
 NAME    = so_long
 
@@ -28,7 +29,6 @@ CC 		= gcc
 
 $(NAME):
 	$(CC) $(CFLAGS) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a
-	./a.out
 
 all: $(NAME)
 

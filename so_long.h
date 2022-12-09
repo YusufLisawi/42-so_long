@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/06 15:26:53 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/09 19:41:27 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define ERR_ELMS	"The map must contain 1 (E), at least 1 (C), and 1 (P)."
 # define ERR_RECT	"The map must be rectangular."
 # define ERR_WALL	"The map must be closed/surrounded by walls."
+# define ERR_ARG	"Please enter 1 map file as argument."
 // Game
 # define TILE_SIZE 40
 
@@ -86,4 +87,7 @@ void	game_init(t_game *game);
 void	parse_map(t_game *game);
 void	put_element(char c, int x, int y, t_game *game);
 void	move_player(int keycode, t_game *game);
+void	free_map(char **map);
+int		press_red_cross(t_game *game);
+int		handle_keypress(int keycode, t_game *game);
 #endif

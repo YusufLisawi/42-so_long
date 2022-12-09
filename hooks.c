@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_log.c                                        :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/04 13:45:28 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/09 19:36:50 by yelaissa         ###   ########.fr       */
+/*   Created: 2022/12/09 19:23:34 by yelaissa          #+#    #+#             */
+/*   Updated: 2022/12/09 19:23:42 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	throw_err(char *type)
+int	press_red_cross(t_game *game)
 {
-	ft_printf(COLOR_RED "Error\n"COLOR_RESET "%s\n", type);
+	free_map(game->map.matrix);
+	exit(0);
+	return (0);
+}
+
+int	handle_keypress(int keycode, t_game *game)
+{
+	if (keycode != KEY_ESC && game->elem.count_e != 0)
+		move_player(keycode, game);
+	else if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(game->mlx, game->win);
+		free_map(game->map.matrix);
+		exit(0);
+	}
 	return (0);
 }
