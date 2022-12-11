@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:23:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/09 19:23:42 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 12:08:50 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	press_red_cross(t_game *game)
 {
 	free_map(game->map.matrix);
+	mlx_destroy_window(game->mlx, game->win);
 	exit(0);
 	return (0);
 }
