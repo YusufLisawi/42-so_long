@@ -6,7 +6,7 @@
 #    By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/09 19:39:09 by yelaissa         ###   ########.fr        #
+#    Updated: 2022/12/11 17:10:18 by yelaissa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = so_long.c \
 	init.c \
 	move_player.c \
 	hooks.c \
+	exit_game.c \
 
 NAME    = so_long
 
@@ -28,7 +29,9 @@ RM        = rm -f
 CC 		= gcc
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a
+	@make -C libft
+	@make clean -C libft
+	$(CC) $(CFLAGS) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit libft/libft.a -o $(NAME)
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/11 13:54:14 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:42:30 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@ void	elems_init(t_elem *elm)
 	elm->count_c = 0;
 	elm->count_e = 0;
 	elm->count_p = 0;
-}
-
-void	free_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map[i]);
 }
 
 int	main(int argc, char **argv)
