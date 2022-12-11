@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/11 12:13:01 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:14:25 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_game
 	int			mvt;
 	t_img		wall;
 	t_img		coll;
-	t_img		player;
+	t_img		player[4][3];
 	t_img		bg;
 	t_img		exit_false;
 	t_img		exit_true;
@@ -90,4 +90,8 @@ void	move_player(int keycode, t_game *game);
 void	free_map(char **map);
 int		press_red_cross(t_game *game);
 int		handle_keypress(int keycode, t_game *game);
+void	exit_game(t_game *game, int code);
+void	exit_with_error(t_game *game, char *msg);
+void	load_player(t_game *game);
+void	put_bg(t_game *game);
 #endif

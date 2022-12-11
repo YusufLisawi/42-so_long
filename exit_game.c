@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:42:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/11 17:06:20 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 20:18:08 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,34 @@ void	free_map(char **map)
 
 void	exit_game(t_game *game, int code)
 {
+	// int	i;
+	// int	j;
+
+	// i = 0;
+	// j = 0;
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_image(game->mlx, game->wall.img);
 	mlx_destroy_image(game->mlx, game->coll.img);
-	mlx_destroy_image(game->mlx, game->player.img);
 	mlx_destroy_image(game->mlx, game->bg.img);
 	mlx_destroy_image(game->mlx, game->exit_false.img);
 	mlx_destroy_image(game->mlx, game->exit_true.img);
+	// while (game->player[i])
+	// {
+	// 	j = 0;
+	// 	while (game->player[i][j].img)
+	// 	{
+	// 		mlx_destroy_image(game->mlx, game->player[i][j].img);
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 	free_map(game->map.matrix);
 	exit(code);
+}
+
+void	exit_with_error(t_game *game, char *msg)
+{
+	free_map(game->map.matrix);
+	throw_err(msg);
+	exit(1);
 }

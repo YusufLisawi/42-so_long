@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/11 12:21:32 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 19:24:17 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ void	images_init(t_game *game)
 			&game->wall.img_width, &game->wall.img_height);
 	game->coll.img = mlx_xpm_file_to_image(game->mlx, "./assets2/coll.xpm",
 			&game->coll.img_width, &game->coll.img_height);
-	game->player.img = mlx_xpm_file_to_image(game->mlx,
-			"./assets2/playerD.xpm", &game->player.img_width,
-			&game->player.img_height);
 	game->exit_false.img = mlx_xpm_file_to_image(game->mlx,
 			"./assets/exit_false.xpm", &game->exit_false.img_width,
 			&game->exit_false.img_height);
 	game->exit_true.img = mlx_xpm_file_to_image(game->mlx,
 			"./assets/exit_true.xpm", &game->exit_true.img_width,
 			&game->exit_true.img_height);
+	load_player(game);
+	if (!game->bg.img || !game->wall.img || !game->coll.img \
+		|| !game->exit_false.img || !game->exit_true.img)
+		exit_with_error(game, "Failure in loading images");
 }
 
 void	game_init(t_game *game)
@@ -37,6 +38,8 @@ void	game_init(t_game *game)
 	game->win = mlx_new_window(game->mlx,
 			game->map.width * TILE_SIZE, game->map.height * TILE_SIZE,
 			"so_long");
+	if (!game->mlx || !game->win)
+		exit_with_error(game, "Failure in creating window");
 	images_init(game);
 }
 
@@ -50,7 +53,7 @@ void	put_element(char c, int x, int y, t_game *game)
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (c == 'P')
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->player.img,
+		mlx_put_image_to_window(game->mlx, game->win, game->player[2][0].img,
 			x * TILE_SIZE, y * TILE_SIZE);
 		game->pos.x = x;
 		game->pos.y = y;

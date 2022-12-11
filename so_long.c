@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/11 16:42:30 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:48:02 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 			&game.map.width, \
 			&game.map.height, &game.elem);
 	if (!game.map.matrix)
-		return (0);
+		return (throw_err("Failed loading map"));
 	game_init(&game);
 	parse_map(&game);
 	mlx_hook(game.win, 2, 0, handle_keypress, &game);
