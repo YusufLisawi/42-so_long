@@ -15,6 +15,7 @@ BONUS = bonus/so_long.c \
 	bonus/hooks.c \
 	bonus/exit_game.c \
 	bonus/load_player.c \
+	bonus/monitoring.c \
 
 NAME	= so_long
 
@@ -31,12 +32,16 @@ $(NAME):
 	make clean -C libft
 	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)
 
-all: $(NAME)
-
 bonus:
 	make -C libft
 	make clean -C libft
+	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)_bonus
+
+all: $(NAME)
+
+brun:
 	$(CC) $(CFLAGS) $(BONUS) $(MLXFLAGS) libft/libft.a -o $(NAME)_bonus
+	./so_long_bonus maps/map1.ber
 
 run:
 	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)

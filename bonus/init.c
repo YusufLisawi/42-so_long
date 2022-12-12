@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 12:25:00 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:24:52 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	game_init(t_game *game)
 {
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx,
-			game->map.width * TILE_SIZE, game->map.height * TILE_SIZE,
-			"so_long");
+			game->map.width * TILE_SIZE, \
+			game->map.height * TILE_SIZE + TILE_SIZE, "so_long");
 	if (!game->mlx || !game->win)
 		exit_with_error(game, "Failure in creating window");
 	images_init(game);
@@ -76,7 +76,7 @@ void	put_bg(t_game *game)
 	int	y;
 
 	y = 0;
-	while (y < game->map.height)
+	while (y < game->map.height + 1)
 	{
 		x = 0;
 		while (x < game->map.width)
@@ -96,6 +96,8 @@ void	parse_map(t_game *game)
 
 	row = 0;
 	put_bg(game);
+	mlx_string_put(game->mlx, game->win, TILE_SIZE, \
+		TILE_SIZE * game->map.height + 5, 0xFFFFFF, "Moves : 0");
 	while ((game->map.matrix)[row])
 	{
 		col = 0;

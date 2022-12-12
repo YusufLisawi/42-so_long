@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 11:53:14 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:25:33 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	move(t_game *game, int dir, int x, int y)
 		game->player[dir][game->mvt % 3].img, \
 		TILE_SIZE * game->pos.x, TILE_SIZE * game->pos.y);
 	collect(game);
+	monitor_moves(game);
 	ft_printf("Moves : %d\n", ++game->mvt);
 	check_exit(game);
 }
