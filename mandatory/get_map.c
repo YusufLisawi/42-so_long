@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/09 16:00:10 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:31:49 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_file(char *filename, int *fd)
 		*fd = open(filename, O_RDONLY);
 		if (*fd == -1)
 		{
-			ft_printf(COLOR_RED "Error:\n" COLOR_RESET "%s\n", strerror(errno));
+			throw_err(strerror(errno));
 			close(*fd);
 			return (0);
 		}

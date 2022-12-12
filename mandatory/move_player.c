@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 08:51:31 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:08:22 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	check_exit(t_game *game)
 	if (game->map.matrix[game->pos.y][game->pos.x] == 'e')
 	{
 		game->elem.count_e = game->elem.count_e - 1;
-		ft_printf(COLOR_GREEN "\n----- You win -----\n" COLOR_RESET);
+		ft_printf(COLOR_GREEN "\n----- You win -----\n"COLOR_RESET"with %d moves, \
+			\nis that your best?\n", game->mvt);
 		exit_game(game, 0);
 	}
 }

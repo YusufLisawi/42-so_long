@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/11 18:48:02 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:11:49 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int	main(int argc, char **argv)
 	mlx_hook(game.win, 2, 0, handle_keypress, &game);
 	mlx_hook(game.win, 17, 0, press_red_cross, &game);
 	mlx_loop(game.mlx);
-	free_map(game.map.matrix);
 	return (0);
 }
