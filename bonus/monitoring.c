@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 11:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 14:24:42 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:43:17 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	monitor_moves(t_game *game)
 	size_t	i;
 
 	i = 0;
-	moves = ft_itoa(game->mvt + 1);
+	moves = ft_itoa(game->mvt);
 	while (i < ft_strlen(moves))
 	{
 		put_element('0', 3 + i, game->map.height, game);

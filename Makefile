@@ -39,14 +39,6 @@ bonus:
 
 all: $(NAME)
 
-brun:
-	$(CC) $(CFLAGS) $(BONUS) $(MLXFLAGS) libft/libft.a -o $(NAME)_bonus
-	./so_long_bonus maps/map1.ber
-
-run:
-	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)
-	./so_long maps/map1.ber
-
 clean:
 	$(RM) *.o
 
@@ -69,3 +61,11 @@ level2:
 	./so_long maps/map2.ber
 level3:
 	./so_long maps/map3.ber
+
+brun:
+	$(CC) $(CFLAGS) $(BONUS) $(MLXFLAGS) libft/libft.a -o $(NAME)_bonus
+	./so_long_bonus maps/map1.ber
+
+run:
+	$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)
+	./so_long maps/map1.ber

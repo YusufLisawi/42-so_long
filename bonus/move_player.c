@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 14:25:33 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:43:09 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,13 @@ void	move(t_game *game, int dir, int x, int y)
 		TILE_SIZE * game->pos.x, TILE_SIZE * game->pos.y);
 	collect(game);
 	monitor_moves(game);
-	ft_printf("Moves : %d\n", ++game->mvt);
+	ft_printf("Moves : %d\n", game->mvt);
 	check_exit(game);
 }
 
 void	move_player(int keycode, t_game *game)
 {
+	game->mvt += 1;
 	if (keycode == KEY_W || keycode == 126)
 		move(game, 0, 0, -1);
 	else if (keycode == KEY_A || keycode == 123)
