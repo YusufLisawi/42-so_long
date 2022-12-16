@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 10:31:49 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:38:25 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,13 @@ char	**get_map(char *filename, int *width, int *height, t_elem *elements)
 		return (0);
 	map = ft_split(map_str, '\n');
 	if (!is_wall(map, *height)
-		|| !is_elements_count(map, elements, *height, *width))
+		|| !is_elements_count(map, elements, *height, *width)
+		|| !is_valid_path(map_str, *elements))
+	{
+		free_map(map);
 		map = NULL;
+	}
+	free(map_str);
 	close(fd);
 	return (map);
 }

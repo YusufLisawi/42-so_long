@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 09:52:50 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:36:56 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,7 @@ void	exit_game(t_game *game, int code);
 void	exit_with_error(t_game *game, char *msg);
 void	load_player(t_game *game);
 void	put_bg(t_game *game);
+void	free_map(char **map);
+int		is_valid_path(char *map, t_elem el);
+
 #endif

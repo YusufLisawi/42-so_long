@@ -6,6 +6,7 @@ SRCS = mandatory/so_long.c \
 	mandatory/hooks.c \
 	mandatory/exit_game.c \
 	mandatory/load_player.c \
+	mandatory/path.c
 
 BONUS = bonus/so_long.c \
 	bonus/get_map.c \

@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:42:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 09:56:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:23:40 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	exit_with_error(t_game *game, char *msg)
 {
 	free_map(game->map.matrix);
 	throw_err(msg);
-	exit(1);
+	exit(0);
 }
 
 int	throw_err(char *type)
