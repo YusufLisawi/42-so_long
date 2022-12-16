@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map_utils.c                                    :+:      :+:    :+:   */
+/*   get_map_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/09 16:01:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:48:49 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	get_width(char *line)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')

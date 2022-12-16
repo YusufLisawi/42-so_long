@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/09 16:01:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:26:38 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	get_width(char *line)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (line[i] != '\n' && line[i] != '\0')

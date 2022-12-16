@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:42:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 13:23:40 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:26:35 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	exit_with_error(t_game *game, char *msg)
 
 int	throw_err(char *type)
 {
-	ft_printf(COLOR_RED "Error\n"COLOR_RESET "%s\n", type);
+	ft_printf(COLOR_RED "Error\n" COLOR_RESET "%s\n", type);
 	return (0);
 }

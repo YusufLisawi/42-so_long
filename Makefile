@@ -8,15 +8,16 @@ SRCS = mandatory/so_long.c \
 	mandatory/load_player.c \
 	mandatory/path.c
 
-BONUS = bonus/so_long.c \
-	bonus/get_map.c \
-	bonus/get_map_utils.c \
-	bonus/init.c \
-	bonus/move_player.c \
-	bonus/hooks.c \
-	bonus/exit_game.c \
-	bonus/load_player.c \
-	bonus/monitoring.c \
+BONUS = bonus/exit_game_bonus.c \
+	bonus/get_map_bonus.c \
+	bonus/get_map_utils_bonus.c \
+	bonus/hooks_bonus.c \
+	bonus/init_bonus.c \
+	bonus/load_player_bonus.c \
+	bonus/monitoring_bonus.c \
+	bonus/move_player_bonus.c \
+	bonus/path_bonus.c \
+	bonus/so_long_bonus.c \
 
 NAME	= so_long
 

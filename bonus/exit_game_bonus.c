@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_game.c                                        :+:      :+:    :+:   */
+/*   exit_game_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:42:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/12 09:56:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:49:22 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	free_map(char **map)
 {
@@ -55,11 +55,11 @@ void	exit_with_error(t_game *game, char *msg)
 {
 	free_map(game->map.matrix);
 	throw_err(msg);
-	exit(1);
+	exit(0);
 }
 
 int	throw_err(char *type)
 {
-	ft_printf(COLOR_RED "Error\n"COLOR_RESET "%s\n", type);
+	ft_printf(COLOR_RED "Error\n" COLOR_RESET "%s\n", type);
 	return (0);
 }

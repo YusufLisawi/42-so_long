@@ -6,12 +6,12 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 13:38:25 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:27:03 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
 #include "get_map.h"
+#include "so_long.h"
 
 int	check_file(char *filename, int *fd)
 {
@@ -89,9 +89,8 @@ char	**get_map(char *filename, int *width, int *height, t_elem *elements)
 	if (!map_str)
 		return (0);
 	map = ft_split(map_str, '\n');
-	if (!is_wall(map, *height)
-		|| !is_elements_count(map, elements, *height, *width)
-		|| !is_valid_path(map_str, *elements))
+	if (!is_wall(map, *height) || !is_elements_count(map, elements, *height,
+			*width) || !is_valid_path(map_str, *elements))
 	{
 		free_map(map);
 		map = NULL;

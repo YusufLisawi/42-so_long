@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map.h                                          :+:      :+:    :+:   */
+/*   get_map_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:47:28 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/05 16:59:15 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:49:04 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_MAP_H
-# define GET_MAP_H
+#ifndef GET_MAP_BONUS_H
+# define GET_MAP_BONUS_H
 
 # include <fcntl.h>
 
@@ -20,7 +20,7 @@ typedef struct s_elements
 	int	count_e;
 	int	count_c;
 	int	count_p;
-}	t_elem;
+}		t_elem;
 
 int		check_filename_ext(char *filename, char *ext);
 int		is_valid_elements(char *line);
