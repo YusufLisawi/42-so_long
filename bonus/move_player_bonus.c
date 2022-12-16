@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 19:26:26 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:47:49 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:59:35 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	collect(t_game *game)
 	}
 	if (game->elem.count_c == 0)
 	{
-		mlx_put_image_to_window(game->mlx, game->win, game->exit_true.img,
+		mlx_put_image_to_window(game->mlx, game->win, \
+			game->exit_true.img, \
 			game->pos.x_e * TILE_SIZE, game->pos.y_e * TILE_SIZE);
 		game->map.matrix[game->pos.y_e][game->pos.x_e] = 'e';
 	}
@@ -32,8 +33,8 @@ void	check_exit(t_game *game)
 	if (game->map.matrix[game->pos.y][game->pos.x] == 'e')
 	{
 		game->elem.count_e = game->elem.count_e - 1;
-		ft_printf(COLOR_GREEN "\n----- You win -----\n" COLOR_RESET
-			"with %d moves, \nis that your best?\n", game->mvt);
+		ft_printf(COLOR_GREEN "\n----- You win -----\n"COLOR_RESET"with %d moves, \
+			\nis that your best?\n", game->mvt);
 		exit_game(game, 0);
 	}
 }
@@ -48,11 +49,13 @@ void	move(t_game *game, int dir, int x, int y)
 		put_element('0', game->pos.x, game->pos.y, game);
 	game->pos.x = game->pos.x + x;
 	game->pos.y = game->pos.y + y;
-	mlx_put_image_to_window(game->mlx, game->win,
-		game->player[dir][game->mvt % 3].img,
+	mlx_put_image_to_window(game->mlx, game->win, \
+		game->player[dir][game->mvt % 3].img, \
 		TILE_SIZE * game->pos.x, TILE_SIZE * game->pos.y);
 	collect(game);
-	ft_printf("Moves : %d\n", ++game->mvt);
+	game->mvt += 1;
+	monitor_moves(game);
+	ft_printf("Moves : %d\n", game->mvt);
 	check_exit(game);
 }
 

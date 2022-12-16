@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:44:30 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:58:05 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Libs
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
-# include "get_map.h"
+# include "get_map_bonus.h"
 # include <errno.h>
 # include <mlx.h>
 # include <stdio.h>
@@ -95,6 +95,7 @@ void		exit_with_error(t_game *game, char *msg);
 void		load_player(t_game *game);
 void		put_bg(t_game *game);
 void		free_map(char **map);
+void		monitor_moves(t_game *game);
 int			is_valid_path(char *map, t_elem el);
 
 #endif
