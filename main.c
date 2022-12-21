@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   monitoring_bonus.c                                 :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 11:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 14:30:30 by yelaissa         ###   ########.fr       */
+/*   Created: 2022/12/19 11:24:19 by yelaissa          #+#    #+#             */
+/*   Updated: 2022/12/19 11:37:22 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "mandatory/so_long.h"
 
-void	monitor_moves(t_game *game)
+int	main(void)
 {
-	char	*moves;
-	size_t	i;
+	t_list	*lst;
+	t_list	*tmp;
 
-	i = 0;
-	moves = ft_itoa(game->mvt);
-	while (i < ft_strlen(moves))
+	lst = NULL;
+	tmp = ft_lstnew(ft_strdup("2"));
+	ft_lstadd_front(&lst, tmp);
+	while (lst != NULL)
 	{
-		put_element('0', 3 + i, game->map.height, game);
-		i++;
+		ft_printf("%s", lst->content);
+		lst = lst->next;
 	}
-	mlx_string_put(game->mlx, game->win, TILE_SIZE * 3, \
-		TILE_SIZE * game->map.height + 5, 0xFFFFFF, moves);
-	free(moves);
+	return (0);
 }

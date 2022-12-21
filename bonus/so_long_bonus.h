@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:58:05 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/21 15:20:08 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_game
 	void	*win;
 	int		mvt;
 	t_img	wall;
-	t_img	coll;
+	t_img	coll[8];
 	t_img	player[4][3];
 	t_img	bg;
 	t_img	exit_false;
@@ -79,6 +79,12 @@ typedef struct s_game
 	t_map	map;
 	t_elem	elem;
 	t_pos	pos;
+
+	t_img	enemy[4];
+	t_list	*e_cords;
+	t_list	*c_cords;
+
+	int		frame;
 }			t_game;
 
 void		elems_init(t_elem *elm);
@@ -98,4 +104,10 @@ void		free_map(char **map);
 void		monitor_moves(t_game *game);
 int			is_valid_path(char *map, t_elem el);
 
+void		load_enemy(t_game *game);
+void		put_enemy(t_game *game, int x, int y);
+
+void		load_colls(t_game *game);
+void		put_coll(t_game *game, int x, int y);
+int			animate_colls(t_game *game);
 #endif

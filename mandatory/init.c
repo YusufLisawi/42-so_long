@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:27:22 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/19 09:53:23 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	images_init(t_game *game)
 			&game->bg.img_width, &game->bg.img_height);
 	game->wall.img = mlx_xpm_file_to_image(game->mlx, "./assets/wall.xpm",
 			&game->wall.img_width, &game->wall.img_height);
-	game->coll.img = mlx_xpm_file_to_image(game->mlx, "./assets/coll.xpm",
+	game->coll.img = mlx_xpm_file_to_image(game->mlx, "./assets/colls/1.xpm",
 			&game->coll.img_width, &game->coll.img_height);
 	game->exit_false.img = mlx_xpm_file_to_image(game->mlx,
 			"./assets/exit_false.xpm", &game->exit_false.img_width,
