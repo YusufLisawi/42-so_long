@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:27:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 18:09:14 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/21 18:10:10 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ void	render_col(t_game *game, t_list *col)
 
 	if (i == 7)
 		i = 0;
-	if (game->frame % 900 == 0 && game->map.matrix[col->y][col->x] == 'C')
+	if (game->frame % 900 == 0)
 	{
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->bg.img, col->x * TILE_SIZE, col->y * TILE_SIZE);
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->coll[i].img, col->x * TILE_SIZE, col->y * TILE_SIZE);
+		if (game->map.matrix[col->y][col->x] == 'C')
+		{
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->bg.img, col->x * TILE_SIZE, col->y * TILE_SIZE);
+			mlx_put_image_to_window(game->mlx, game->win,
+				game->coll[i].img, col->x * TILE_SIZE, col->y * TILE_SIZE);
+		}
 		i++;
 	}
 }
