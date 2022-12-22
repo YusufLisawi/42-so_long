@@ -21,6 +21,7 @@ BONUS = bonus/exit_game_bonus.c \
 	bonus/load_enemy_bonus.c \
 	bonus/load_colls_bonus.c \
 	bonus/animation_bonus.c \
+	bonus/move_enemy_bonus.c \
 
 NAME	= so_long
 

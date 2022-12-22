@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 11:20:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:15:13 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_valid_elements(char *line)
 	i = 0;
 	while (i < get_width(line))
 	{
-		if (ft_strrchr("01CPEG", line[i]) == NULL)
+		if (ft_strrchr("01CPEX", line[i]) == NULL)
 			return (throw_err(ERR_ELMS));
 		i++;
 	}

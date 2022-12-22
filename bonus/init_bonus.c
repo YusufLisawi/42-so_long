@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:14:10 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 12:48:01 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 15:15:35 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	parse_map(t_game *game)
 		while ((game->map.matrix)[row][col])
 		{
 			put_element((game->map.matrix)[row][col], col, row, game);
-			if ((game->map.matrix)[row][col] == 'G')
+			if ((game->map.matrix)[row][col] == 'X')
 				put_enemy(game, col, row);
 			col++;
 		}

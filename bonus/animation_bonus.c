@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:27:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 13:32:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 20:03:01 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,40 @@
 
 void	render_col(t_game *game, t_list *col)
 {
-	static int		i;
-
-	if (i == 7)
-		i = 0;
-	if (game->frame % 900 == 0)
+	if (game->map.matrix[col->y][col->x] == 'C')
 	{
-		if (game->map.matrix[col->y][col->x] == 'C')
-		{
-			mlx_put_image_to_window(game->mlx, game->win,
-				game->bg.img, col->x * TILE_SIZE, col->y * TILE_SIZE);
-			mlx_put_image_to_window(game->mlx, game->win,
-				game->coll[i].img, col->x * TILE_SIZE, col->y * TILE_SIZE);
-		}
-		i++;
+		put_element('0', col->x, col->y, game);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->coll[game->frame % 7].img, \
+			col->x * TILE_SIZE, col->y * TILE_SIZE);
 	}
 }
 
 void	render_enemy(t_game *game, t_list *enm)
 {
-	static int		i;
+	put_element('0', enm->x, enm->y, game);
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->enemy[game->frame % 3].img, \
+		enm->x * TILE_SIZE, enm->y * TILE_SIZE);
+}
 
-	if (i == 3)
-		i = 0;
+void	render(t_game *game, t_list *enm, t_list *col)
+{
 	if (game->frame % 1200 == 0)
 	{
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->bg.img, enm->x * TILE_SIZE, enm->y * TILE_SIZE);
-		mlx_put_image_to_window(game->mlx, game->win,
-			game->enemy[i].img, enm->x * TILE_SIZE, enm->y * TILE_SIZE);
-		i++;
+		while (col != NULL)
+		{
+			render_col(game, col);
+			col = col->next;
+		}
+	}
+	if (game->frame % 1400 == 0)
+	{
+		while (enm != NULL)
+		{
+			render_enemy(game, enm);
+			enm = enm->next;
+		}
 	}
 }
 
@@ -54,15 +58,10 @@ int	animate(t_game *game)
 
 	col = game->c_cords;
 	enm = game->e_cords;
-	while (col != NULL)
+	render(game, enm, col);
+	if (game->frame % 3000 == 0)
 	{
-		render_col(game, col);
-		col = col->next;
-	}
-	while (enm != NULL)
-	{
-		render_enemy(game, enm);
-		enm = enm->next;
+		move_enemy(game);
 	}
 	game->frame++;
 	return (0);

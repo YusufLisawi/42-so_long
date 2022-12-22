@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 13:30:43 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:11:10 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,25 @@ typedef struct s_pos
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	int		mvt;
-	t_img	wall;
-	t_img	coll[8];
-	t_img	player[4][3];
-	t_img	bg;
-	t_img	exit_false;
-	t_img	exit_true;
+	void					*mlx;
+	void					*win;
+	int						mvt;
+	t_img					wall;
+	t_img					coll[8];
+	t_img					player[4][3];
+	t_img					bg;
+	t_img					exit_false;
+	t_img					exit_true;
 
-	t_map	map;
-	t_elem	elem;
-	t_pos	pos;
+	t_map					map;
+	t_elem					elem;
+	t_pos					pos;
 
-	t_img	enemy[4];
-	t_list	*e_cords;
-	t_list	*c_cords;
+	t_img					enemy[4];
+	t_list					*e_cords;
+	t_list					*c_cords;
 
-	int		frame;
+	long unsigned int		frame;
 }			t_game;
 
 void		elems_init(t_elem *elm);
@@ -106,6 +106,7 @@ int			is_valid_path(char *map, t_elem el);
 
 void		load_enemy(t_game *game);
 void		put_enemy(t_game *game, int x, int y);
+void		move_enemy(t_game *game);
 
 void		load_colls(t_game *game);
 void		put_coll(t_game *game, int x, int y);
