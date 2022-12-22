@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 15:20:59 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 13:30:47 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	game_init(&game);
 	parse_map(&game);
 	game.frame = 0;
-	mlx_loop_hook(game.mlx, animate_colls, &game);
+	mlx_loop_hook(game.mlx, animate, &game);
 	mlx_hook(game.win, 2, 0, handle_keypress, &game);
 	mlx_hook(game.win, 17, 0, press_red_cross, &game);
 	mlx_loop(game.mlx);

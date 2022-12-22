@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/21 15:20:08 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/22 13:30:43 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,5 @@ void		put_enemy(t_game *game, int x, int y);
 
 void		load_colls(t_game *game);
 void		put_coll(t_game *game, int x, int y);
-int			animate_colls(t_game *game);
+int			animate(t_game *game);
 #endif
