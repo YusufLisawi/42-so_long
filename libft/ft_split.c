@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:29:47 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 17:22:29 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:54:16 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 	int		wordlen;
-	char	countwords;
+	int		countwords;
 	char	**splited;
 
 	if (!s)

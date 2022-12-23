@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:47:18 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:26:38 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:33:30 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ int	is_valid_elements(char *line)
 	while (i < get_width(line))
 	{
 		if (ft_strrchr("01CPE", line[i]) == NULL)
+		{
+			free(line);
 			return (throw_err(ERR_ELMS));
+		}
 		i++;
 	}
 	return (1);

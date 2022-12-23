@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:46:34 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/16 16:27:03 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 14:55:25 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	is_rect(char *line, int width)
 {
 	if (get_width(line) != width)
 	{
+		free(line);
 		throw_err(ERR_RECT);
 		return (0);
 	}
@@ -59,7 +60,7 @@ char	*read_map(int fd, int *width, int *height)
 		throw_err("Invalid map file.");
 		return (0);
 	}
-	map = ft_strdup(line);
+	map = line;
 	(*width) = get_width(line);
 	(*height) = 1;
 	while (1)
