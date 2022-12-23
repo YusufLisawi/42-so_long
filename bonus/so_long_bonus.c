@@ -6,11 +6,19 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:08:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 18:02:35 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:22:53 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	gameover(t_game *game)
+{
+	ft_printf(COLOR_RED "\n----- You Lose -----\n"COLOR_RESET \
+	"You have been Bitten by skull zombie !!\n" \
+	"%d moves, is that your best?\n", game->mvt);
+	exit_game(game, 0);
+}
 
 void	elems_init(t_elem *elm)
 {

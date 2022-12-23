@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:58:09 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 20:14:15 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:29:18 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_dir(t_game *game, t_list *enm, int x, int y)
 	enm->y += y;
 }
 
-int	is_gameover(t_game *game, char c)
+int	can_move(t_game *game, char c)
 {
 	if (c == 'P')
 		game->elem.count_p -= 1;
@@ -33,25 +33,25 @@ void	choose_dir(t_game *game, t_list *enm, int dir)
 {
 	if (dir == 0)
 	{
-		if (is_gameover(game, game->map.matrix \
+		if (can_move(game, game->map.matrix \
 			[enm->y][enm->x + 1]))
 			set_dir(game, enm, 1, 0);
 	}
 	if (dir == 1)
 	{
-		if (is_gameover(game, game->map.matrix \
+		if (can_move(game, game->map.matrix \
 			[enm->y][enm->x - 1]))
 			set_dir(game, enm, -1, 0);
 	}
 	if (dir == 2)
 	{
-		if (is_gameover(game, game->map.matrix \
+		if (can_move(game, game->map.matrix \
 			[enm->y + 1][enm->x]))
 			set_dir(game, enm, 0, 1);
 	}
 	if (dir == 3)
 	{
-		if (is_gameover(game, game->map.matrix \
+		if (can_move(game, game->map.matrix \
 			[enm->y - 1][enm->x]))
 			set_dir(game, enm, 0, -1);
 	}
@@ -71,10 +71,5 @@ void	move_enemy(t_game *game)
 		enm = enm->next;
 	}
 	if (game->elem.count_p == 0)
-	{
-		ft_printf(COLOR_RED "\n----- You Lose -----\n"COLOR_RESET \
-		"You have been Bitten by skull monster !!\n" \
-		"%d moves, is that your best?\n", game->mvt);
-		exit_game(game, 0);
-	}
+		gameover(game);
 }

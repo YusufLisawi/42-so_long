@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 09:52:48 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 18:11:10 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 11:22:17 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void		put_bg(t_game *game);
 void		free_map(char **map);
 void		monitor_moves(t_game *game);
 int			is_valid_path(char *map, t_elem el);
+void		gameover(t_game *game);
 
 void		load_enemy(t_game *game);
 void		put_enemy(t_game *game, int x, int y);
