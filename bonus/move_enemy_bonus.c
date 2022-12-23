@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:58:09 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/23 11:29:18 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:39:29 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	set_dir(t_game *game, t_list *enm, int x, int y)
 	game->map.matrix[enm->y][enm->x] = '0';
 	enm->x += x;
 	enm->y += y;
+	game->map.matrix[enm->y][enm->x] = 'X';
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->enemy[0].img, enm->x * TILE_SIZE, enm->y * TILE_SIZE);
 }
 
 int	can_move(t_game *game, char c)
@@ -29,7 +32,7 @@ int	can_move(t_game *game, char c)
 	return (0);
 }
 
-void	choose_dir(t_game *game, t_list *enm, int dir)
+void	pick_dir(t_game *game, t_list *enm, int dir)
 {
 	if (dir == 0)
 	{
@@ -66,8 +69,7 @@ void	move_enemy(t_game *game)
 	while (enm)
 	{
 		dir = rand() % 4;
-		choose_dir(game, enm, dir);
-		game->map.matrix[enm->y][enm->x] = 'X';
+		pick_dir(game, enm, dir);
 		enm = enm->next;
 	}
 	if (game->elem.count_p == 0)

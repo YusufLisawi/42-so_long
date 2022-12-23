@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:27:27 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/12/22 20:03:01 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:40:15 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ int	animate(t_game *game)
 	col = game->c_cords;
 	enm = game->e_cords;
 	render(game, enm, col);
-	if (game->frame % 3000 == 0)
-	{
+	if (game->frame % 3500 == 0)
 		move_enemy(game);
-	}
 	game->frame++;
 	return (0);
 }
