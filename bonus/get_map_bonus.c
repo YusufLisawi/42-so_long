@@ -96,7 +96,6 @@ char	**get_map(char *filename, int *width, int *height, t_elem *elements)
 		free_map(map);
 		map = NULL;
 	}
-	free(map_str);
 	close(fd);
 	return (map);
 }

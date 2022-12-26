@@ -62,9 +62,10 @@ int	is_valid_path(char *map, t_elem el)
 	get_pos(matrix, &x, &y);
 	if (!check_path(matrix, x, y, &el))
 	{
-		free(matrix);
+		free_map(matrix);
 		return (throw_err("There's no path for this map"));
 	}
-	free(matrix);
+	free_map(matrix);
+	free(map);
 	return (1);
 }

@@ -94,9 +94,7 @@ char	**get_map(char *filename, int *width, int *height, t_elem *elements)
 			*width) || !is_valid_path(map_str, *elements))
 	{
 		free_map(map);
-		map = NULL;
 	}
-	free(map_str);
 	close(fd);
 	return (map);
 }
