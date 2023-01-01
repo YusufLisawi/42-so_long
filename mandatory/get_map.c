@@ -92,9 +92,8 @@ char	**get_map(char *filename, int *width, int *height, t_elem *elements)
 	map = ft_split(map_str, '\n');
 	if (!is_wall(map, *height) || !is_elements_count(map, elements, *height,
 			*width) || !is_valid_path(map_str, *elements))
-	{
 		free_map(map);
-	}
+	free(map_str);
 	close(fd);
 	return (map);
 }

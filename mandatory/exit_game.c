@@ -23,6 +23,7 @@ void	free_map(char **map)
 		map[i] = NULL;
 		i++;
 	}
+	free(map);
 }
 
 void	exit_game(t_game *game, int code)

@@ -79,8 +79,6 @@ re: fclean all
 play:
 	@./so_long_bonus maps/map0.ber
 	@./so_long_bonus maps/map1.ber
-	@./so_long_bonus maps/map2.ber
-	@./so_long_bonus maps/map3.ber
 	@./so_long_bonus maps/map.ber
 	@./so_long_bonus maps/map4.ber
 	@./so_long_bonus maps/map5.ber

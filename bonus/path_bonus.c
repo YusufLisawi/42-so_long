@@ -66,6 +66,5 @@ int	is_valid_path(char *map, t_elem el)
 		return (throw_err("There's no path for this map"));
 	}
 	free_map(matrix);
-	free(map);
 	return (1);
 }
