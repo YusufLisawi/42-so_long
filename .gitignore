@@ -1,6 +1,0 @@
-a.out
-*.o
-screen.c
-.DS_Store
-libft/libft.a
-rename.py
