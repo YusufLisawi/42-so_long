@@ -17,7 +17,6 @@
 # include "../mlx/mlx.h"
 # include "get_map.h"
 # include <errno.h>
-# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 // Colors

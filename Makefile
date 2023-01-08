@@ -82,8 +82,3 @@ play:
 	@./so_long_bonus maps/map4.ber
 	@./so_long_bonus maps/map5.ber
 	@./so_long_bonus maps/map6.ber
-# to be deleted
-push:
-	git add .
-	git commit -m "updates"
-	git push

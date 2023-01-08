@@ -32,7 +32,7 @@ int	handle_keypress(int keycode, t_game *game)
 		if (game->elem.count_c > 0)
 		{
 			ft_printf(COLOR_RED "\n----- You Lose -----\n"COLOR_RESET \
-				"is that your best?\n", game->mvt);
+				"is that your best?\n");
 		}
 		exit_game(game, 0);
 	}
