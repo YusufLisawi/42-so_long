@@ -20,7 +20,7 @@ int	check_file(char *filename, int *fd)
 	dot = ft_strrchr(filename, '.');
 	if (!dot || dot == filename)
 		return (0);
-	if (ft_strncmp("ber", dot + 1, 3) == 0)
+	if (ft_strncmp("ber", dot + 1, 3) == 0 && ft_strlen(dot) == 4)
 	{
 		*fd = open(filename, O_RDONLY);
 		if (*fd == -1)

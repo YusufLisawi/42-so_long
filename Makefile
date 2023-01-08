@@ -49,7 +49,6 @@ $(NAME):
 	@echo $(RED) "- Compiling $(NAME)..." $(RESET)
 	@$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)
 	@echo $(GREEN)"- Compiled -"$(RESET)
-	@echo $(YELLOW)"Run -> make play <- to start playing..." $(RESET)
 
 bonus:
 	@echo $(RED) "- Making libft..." $(RESET)
