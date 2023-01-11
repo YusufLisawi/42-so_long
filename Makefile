@@ -8,6 +8,8 @@ SRCS = mandatory/so_long.c \
 	mandatory/load_player.c \
 	mandatory/path.c
 
+OBJS = $(SRCS:c=o)
+
 BONUS = bonus/exit_game_bonus.c \
 	bonus/get_map_bonus.c \
 	bonus/get_map_utils_bonus.c \
@@ -23,62 +25,48 @@ BONUS = bonus/exit_game_bonus.c \
 	bonus/animation_bonus.c \
 	bonus/move_enemy_bonus.c \
 
+OBJS_B = $(BONUS:c=o)
+
 NAME	= so_long
+
+NAME_B	= so_long_bonus
 
 CFLAGS   = -Wall -Wextra -Werror
 
-MLXFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+MLXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
 RM       = rm -f
 
 CC 		= gcc
 
-RED	= "\x1b[31m"
-GREEN	= "\x1b[32m"
-YELLOW	= "\x1b[33m"
-GRAY	='\033[2;37m'
-CURSIVE	='\033[3m'
-RESET	= "\x1b[0m"
+LIBFT		= libft/libft.a
 
-$(NAME):
-	@echo $(RED) "- Making libft..." $(RESET)
-	@echo $(CURSIVE)$(GRAY)"____________"
-	make -C libft
-	make clean -C libft
-	@echo "____________"$(RESET)
-	@echo $(RED) "- Compiling $(NAME)..." $(RESET)
-	@$(CC) $(CFLAGS) $(SRCS) $(MLXFLAGS) libft/libft.a -o $(NAME)
-	@echo $(GREEN)"- Compiled -"$(RESET)
+%.o: %.c
+	$(CC) -c $< -o $@ $(CFLAGS)
 
-bonus:
-	@echo $(RED) "- Making libft..." $(RESET)
-	@echo $(CURSIVE)$(GRAY)"____________"
-	make -C libft
-	make bonus -C libft
-	make clean -C libft
-	@echo "____________"$(RESET)
-	@echo $(RED) "- Compiling $(NAME)..." $(RESET)
-	@$(CC) $(CFLAGS) $(BONUS) $(MLXFLAGS) libft/libft.a -o $(NAME)_bonus
-	@echo $(GREEN)"- Compiled -"$(RESET)
-	@echo $(YELLOW)"Run -> make play <- to start playing..." $(RESET)
+$(NAME): $(LIBFT) $(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) libft/libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+$(NAME_B): $(LIBFT) $(OBJS_B)
+		$(CC) $(CFLAGS) $(OBJS_B) libft/libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME_B)
+
+$(LIBFT):	
+		make all -C libft
+		make bonus -C libft
+
+all:	$(NAME)
+
+bonus: $(NAME_B)
+
+clean:	
+		$(RM) $(OBJS_B) $(OBJS) 
+		make fclean -C libft
 	
+fclean:	clean
+		$(RM) $(NAME)
+		$(RM) $(NAME_B)
 
-all: $(NAME)
+re:	fclean all
 
-clean:
-	$(RM) *.o
 
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: fclean all clean re $(NAME) bonus
-
-play:
-	@./so_long_bonus maps/map0.ber
-	@./so_long_bonus maps/map1.ber
-	@./so_long_bonus maps/map.ber
-	@./so_long_bonus maps/map4.ber
-	@./so_long_bonus maps/map5.ber
-	@./so_long_bonus maps/map6.ber
+.PHONY:	all clean fclean re bonus
